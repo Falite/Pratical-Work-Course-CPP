@@ -14,8 +14,14 @@ int main() {
     
     Vertebre Boris(4,"tout doux");
     cout << "je suis Boris et je suis un " << endl;
-    cout << Boris << endl;
-    Volante Nathan(4);
-    Nathan.affiche();
+    cout << Boris << endl;  //ça marche 
+    Volante Ihab(8);
+    
+    cout << "Je suis Ihab et je suis "  << endl;
+    cout << Ihab << endl;
+    
+    Oiseau Toufik(8);
+    cout << " Je suis Toufik et je suis : " << endl;
+    cout << Toufik << endl;
     return 0;
 }

@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <iostream>
 
+/*              VERTEBRE                */
 class Vertebre {
 protected:
     int m_pattes;
@@ -23,11 +24,13 @@ public:
     
     //methodes supp
     void affiche()const;
-    void get_pattes()const;
-    void get_pelage()const;
+    int get_pattes()const;
+    std::string get_pelage()const;
     friend std::ostream& operator<<(std::ostream &flux, Vertebre const& autre);
 };
 
+
+/*                  VOLANTE             */
 class Volante {
 protected:
     int m_nailes;
@@ -38,10 +41,11 @@ public:
     
     //méthodes supp
     void affiche()const;
-    void get_ailes()const;
-    friend std::ostream& operator<<(std::ostream flux, Volante const& autre);
+    int get_ailes()const;
+    friend std::ostream& operator<<(std::ostream &flux, Volante const& autre);
 };
 
+/*              OISEAU              */
 class Oiseau : public Vertebre,public Volante {
 protected:
     int m_noeufs;
@@ -52,7 +56,7 @@ public:
     
     //methodes supp
     virtual void affiche()const;
-    void get_oeufs()const;
+    int get_oeufs()const;
     friend std::ostream& operator<<(std::ostream &flux, Oiseau const& zoizo);
 };
 
