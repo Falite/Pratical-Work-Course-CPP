@@ -21,5 +21,7 @@ public:
     virtual ~IJ();
     
     friend bool operator<(IJ const& autre1, IJ const& autre2);
+    //Question 1: "friend" pour avoir accès aux données des deux objets de la classe IJ
+    //elle est indispensable pour que IJ serve de clé à la map
 };
 #endif /* IJ_hpp */
