@@ -10,9 +10,10 @@
 
 #include <stdio.h>
 #include <iostream>
-
+// partie 2 :
 class Array{
-    protected :
+    //question a)
+    protected :   //attributs privés
     int taille;
     double *data;
     
@@ -23,12 +24,12 @@ class Array{
     //detructeur
     ~Array();
     
-    //constructeur par copie
+    //Bonus : constructeur par copie
     Array(Array &X);
     
-    //autres fonctions
-    int size()const;
-    int get(int n)const;
+    //question b) autres fonctions
+    int size()const;            //la terminaison "const" nous assure que rien ne sera modifié en mémoire
+    int get(int n)const;        // quand la fonction est appelée.
     void set(int n,double x);
     
 };

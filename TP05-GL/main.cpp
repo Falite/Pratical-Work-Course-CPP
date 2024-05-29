@@ -15,7 +15,7 @@ using namespace std;
 template<typename T>
 void affiche_vecteur(vector<T> vec){
     for(int i=0;i<vec.size();++i){
-        cout << vec[i] << " " ;
+        cout << vec[i] << " " ;        //Ce conteneur contient des valeurs accessibles grâce à la surcharge de "[]"
     }
     cout << endl;
 }
@@ -23,7 +23,7 @@ void affiche_vecteur(vector<T> vec){
 void affiche(vector<int>const vecc){
     if(vecc.size()!=0){
         for(int i=0;i<vecc.size();++i){
-            cout << vecc[i] << " "  ;
+            cout << vecc[i] << " "  ;     //Ce conteneur contient des valeurs accessibles grâce à la surcharge de "[]"
         }
     }
     else{
@@ -31,6 +31,7 @@ void affiche(vector<int>const vecc){
     }
     cout << endl;
 }
+
 void affiche(list<double>const listt){
     for(const auto& elem : listt){
         cout << elem << " " ;

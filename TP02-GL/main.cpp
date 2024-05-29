@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
     cout << "voici la valeur propre maximale " << puissance(M,v,n) << endl;
     
     vecteur C;
-    C=M.produit(v);
+    C=M * v;
     C.affiche();
     
     return 0;

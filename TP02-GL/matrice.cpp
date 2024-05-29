@@ -69,3 +69,17 @@ vecteur matrice::produit( vecteur const&b){
     
     return RES;
 }
+
+vecteur matrice::operator*(vecteur const& V){
+    vecteur RES;
+    for(int i=0;i<3;i++){
+        RES.vec[0]+=mat[i]*V.vec[0];
+    }
+    for(int i=3;i<6;i++){
+        RES.vec[1]+=mat[i]*V.vec[1];
+    }
+    for(int i=6;i<9;i++){
+        RES.vec[2]+=mat[i]*V.vec[2];
+    }
+    return RES;
+}

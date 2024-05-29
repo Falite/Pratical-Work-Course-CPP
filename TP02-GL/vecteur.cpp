@@ -9,6 +9,8 @@
 #include <string>
 using namespace std;
 
+//partie 1 :
+//question a)
 vecteur::vecteur(double x, double y, double z){
     vec[0]=x; vec[1]=y; vec[2]=z;
     //cout << "objet créé " << endl;
@@ -32,19 +34,23 @@ void vecteur::affiche(){
     cout << endl;
 }
 
+vecteur& vecteur::operator= (vecteur const& v){
+    if(this != &autre){
+        for(int i=0;i<3;i++){
+        vec[i]=v.vec[i];    
+        }
+    }
+    return *this ;
+}
+
+//question b) 
 void vecteur::echelle(double facteur){
     for(int i=0;i<3;i++){
-        vec[i]*=facteur;
+        vec[i]*=facteur;     //c'est la même chose que vec[i]= vec[i]*facteur
     }
     //cout << " le facteur est passé " << endl;
 }
 
-vecteur& vecteur::operator= (vecteur const& v){
-    for(int i=0;i<3;i++){
-        vec[i]=v.vec[i];
-    }
-    return *this ;
-}
 
 double produit(vecteur const& v,vecteur const& u){
     double res(0);
@@ -54,4 +60,16 @@ double produit(vecteur const& v,vecteur const& u){
     return res;
 }
 
+void vecteur::operator*(double facteur){
+    for(int i=0;i<3;i++){
+        vec[i]*=facteur;
+    }
+}
 
+double operator*(vecteur const& v,vecteur const& u){
+    double res(0);
+    for(int i=0;i<3;i++){
+        res+=u.vec[i]*v.vec[i];
+    }
+    return res;
+}

@@ -11,9 +11,9 @@
 #include <stdio.h>
 #include <iostream>
 
-/*              VERTEBRE                */
+/*PARTIE 1 :              VERTEBRE                */
 class Vertebre {
-protected:
+protected:    //on choisit cette protection pour qu'elle passe en private durant l'héritage public
     int m_pattes;
     std::string m_pelage;
     
@@ -23,29 +23,15 @@ public:
     ~Vertebre();
     
     //methodes supp
-    void affiche()const;
+    void affiche()const;     
     int get_pattes()const;
     std::string get_pelage()const;
+
+    //PARTIE 4 : BONUS
     friend std::ostream& operator<<(std::ostream &flux, Vertebre const& autre);
 };
 
-
-/*                  VOLANTE             */
-class Volante {
-protected:
-    int m_nailes;
-public:
-    //méthodes de base
-    Volante(int nailes);
-    ~Volante();
-    
-    //méthodes supp
-    void affiche()const;
-    int get_ailes()const;
-    friend std::ostream& operator<<(std::ostream &flux, Volante const& autre);
-};
-
-/*              OISEAU              */
+/*PARTIE 2 :           OISEAU              */
 class Oiseau : public Vertebre,public Volante {
 protected:
     int m_noeufs;
@@ -57,8 +43,26 @@ public:
     //methodes supp
     virtual void affiche()const;
     int get_oeufs()const;
+
+    //PARTIE 4 : BONUS
     friend std::ostream& operator<<(std::ostream &flux, Oiseau const& zoizo);
 };
 
+/*PARTIE 3 :            VOLANTE             */
+class Volante {
+protected:
+    int m_nailes;
+public:
+    //méthodes de base
+    Volante(int nailes);
+    ~Volante();
+    
+    //méthodes supp
+    void affiche()const;
+    int get_ailes()const;
+
+    //PARTIE 4 : BONUS
+    friend std::ostream& operator<<(std::ostream &flux, Volante const& autre);
+};
 
 #endif /* Vertebre_hpp */

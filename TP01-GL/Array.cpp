@@ -11,14 +11,14 @@
 using namespace std;
 
 Array::Array(int n){
-    taille=n;
-    data=new double[n];
+    taille=n;                  //cette syntaxe est correcte : le compilateur reconnaît l'attribut "taille" 
+    data=new double[n];        // et l'attribut "data" de la classe Array, mais vous pouvez utiliser des this-> aussi
     for(int i=0;i<taille;i++){data[i]=0;}
     cout << "objet créé "<< endl;
 }
 
 Array::~Array(){
-    delete[] data;
+    delete[] data;          //obligatoire pour libérer la mémoire allouée, attention à la syntaxe
     std::cout << "destructeur " << endl;
 }
 

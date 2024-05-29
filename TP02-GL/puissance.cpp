@@ -19,14 +19,14 @@ double puissance(matrice A,vecteur w,int n){
     double resfinal(0.0);
     
     for(int i=0;i<n;i++){
-        res=A.produit(res);
-        facteur=produit(res,res);
-        res.echelle(1./facteur);
+        res=A * res ;
+        facteur= res * res ;
+        res* (1./facteur) ;
     } //on a calculé wn
     
     
-    res2=A.produit(res);
-    resfinal= produit(res,res2)/produit(res,res) ; //on calcule la limite finale
+    res2=A * res ;
+    resfinal = ( res * res2 )/ (res * res) ; //on calcule la limite finale
     
     return resfinal;
 }

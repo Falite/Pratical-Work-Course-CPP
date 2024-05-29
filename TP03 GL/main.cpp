@@ -14,14 +14,19 @@ int main() {
     
     Vertebre Boris(4,"tout doux");
     cout << "je suis Boris et je suis un " << endl;
-    cout << Boris << endl;  //ça marche 
-    Volante Ihab(8);
-    
-    cout << "Je suis Ihab et je suis "  << endl;
+    cout << Boris << endl;  
+
+    Volante Clara(8);
+    cout << "Je suis Clara et je suis "  << endl;
     cout << Ihab << endl;
+    cout << "je vole de mes propres ailes !"
     
-    Oiseau Toufik(8);
-    cout << " Je suis Toufik et je suis : " << endl;
+    Oiseau Kenza(8);
+    cout << "Je suis Kenza et je suis : " << endl;
     cout << Toufik << endl;
+    cout << "J'adore manger des graines ! " << endl;
+    
     return 0;
+
+    //PARTIE 2 : Observation : le destructeur de la classe Vertebre est déclaré en premier car il n'y a pas de polymorphisme.
 }

@@ -11,11 +11,12 @@
 #include <cmath>
 #include <ostream>
 
+//PARTIE 1 : le template : 
 template <typename T>
 class Point2 {
 private:
     std::size_t m_size;
-    T* data;
+    T* data;                  //c'est un pointeur sur un objet générique.
 public:
     Point2(){
         m_size=0;
@@ -25,13 +26,13 @@ public:
     
     Point2(std::size_t size){
         if(m_size != size){
-            delete[] data;
+            delete[] data;       // dans ce cas là , on ne doit pas oublier de libérer la mémoire avant de réaffecter.
             m_size=size;
             data= new T[m_size];
         }
     };
     ~Point2(){
-        delete[] data;
+        delete[] data;           //idem
     }
     
     std::size_t size(){

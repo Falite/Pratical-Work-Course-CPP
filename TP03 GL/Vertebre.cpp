@@ -59,7 +59,7 @@ void Oiseau::affiche()const{
 
 
 
-/*          SURCHARGES          */
+/*BONUS :          SURCHARGES          */
 ostream& operator<<(ostream &flux, Vertebre const& autre){
     flux << "Vertebre avec " << autre.get_pattes() << " pattes et un pelage " << autre.get_pelage() << endl;
     return flux;
