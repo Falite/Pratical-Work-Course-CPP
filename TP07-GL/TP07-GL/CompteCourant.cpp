@@ -14,7 +14,14 @@ CompteCourant::CompteCourant():Compte(),debit(0.){}
 CompteCourant::~CompteCourant(){}
 
 void CompteCourant::retrait(double montant){
-    debit += montant;
+    if(montant>0 && montant < this->solde()){
+        debit += montant;
+    }
+    else if(montant > this->solde()){
+        throw CompteException(ident,"pas de droit au découvert barre toi");
+    }
+    else
+        throw CompteException(ident);
 }
 double CompteCourant::solde()const{
     return credit-debit;

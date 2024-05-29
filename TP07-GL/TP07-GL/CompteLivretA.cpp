@@ -25,6 +25,18 @@ void CompteLivretA::update(){
 
 void CompteLivretA::affiche()const{
     cout << "numéro de compte : " << this->getIdent() << endl;
-    cout << "type : Livret A" << endl;
+    cout << "type : Livret A à " << taux << "%" << endl;
     cout << "solde : " << this->solde() << endl;
+}
+
+void CompteLivretA::depot(double montant){
+    if(montant>0 && montant <= 20000.){
+        credit += montant;
+    }
+    else if(montant >0 && montant > 20000){
+        throw CompteException(ident,"le plafond est dépassé");
+    }
+    else{
+        throw CompteException(ident,"le montant est négatif");
+    }
 }

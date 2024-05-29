@@ -25,7 +25,6 @@ void affiche_comptes(map<int,Compte*>& comptes);
 // Met à jour le solde de tous les comptes
 void update_comptes(map<int,Compte*>& comptes);
 
-
 // Libère la mémoire allouée pour les comptes
 void delete_comptes(map<int,Compte*> & comptes);
 
@@ -46,4 +45,5 @@ void retrait(map<int,Compte*>& comptes,int ident, double montant);
 
 // bonus : transférer depuis un compte vers un autre
 void transfert(map<int,Compte*>& comptes,int from_id,int to_id,double montant);
+
 #endif /* Gestionnaire_hpp */

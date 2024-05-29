@@ -21,6 +21,7 @@ public:
     double interet();
     void update();
     virtual void affiche()const;
+    virtual void depot(double montant);
 };
 
 #endif /* CompteLivretA_hpp */

@@ -51,7 +51,7 @@ void ouverture_compte(map<int,Compte*>& comptes, string type ){
         int ident = temp->getIdent();
         comptes[ident]=temp;
     }
-    else{ cout << "erreur : le type de compte est incorrect JODER";}
+    else{ throw CompteException(0,"donne un vrai type de compte té");}
 }
 
 map<int,Compte*>::iterator trouve_compte(map<int,Compte*>& comptes, int ident){
@@ -60,16 +60,19 @@ map<int,Compte*>::iterator trouve_compte(map<int,Compte*>& comptes, int ident){
         return it;
     }
     else{
-        throw runtime_error("Compte non trouvé AAAAAH");
+        throw CompteException(ident,"le compte n'existe pas JODER");
     }
 }
 
 void fermeture_compte(map<int,Compte*>& comptes,int ident){
     auto it = trouve_compte(comptes, ident);
     if(it != comptes.end()){
-        delete (*it).second;
+        if((*it).second->solde()>0){
+            delete (*it).second;
+        }
+        else{ throw CompteException(ident,"il reste encore de l'argennnnnnnt");}
     }
-    else{ throw runtime_error("erreur : il n'y a pas de compte de cet identifiant pardi !");}
+    else{ throw CompteException(ident,"Pourquoi t'essaie de fermer un compte qui n'existe pas t bizarre");}
 }
 
 void depot(map<int,Compte*>& comptes, int ident, double montant){
@@ -77,7 +80,7 @@ void depot(map<int,Compte*>& comptes, int ident, double montant){
     if ( it != comptes.end()){
         (*it).second->depot(montant);
     }
-    else{ throw runtime_error("le compte n'a pas été trouvé , j'ai pris tout l'argent !!!");}
+    else{ throw CompteException(ident,"le compte n'existe pas JODER l'argent est perdu");}
 }
 
 void retrait(map<int,Compte*>& comptes,int ident, double montant){
@@ -85,7 +88,7 @@ void retrait(map<int,Compte*>& comptes,int ident, double montant){
     if ( it != comptes.end()){
         (*it).second->retrait(montant);
     }
-    else{ throw runtime_error("le compte n'a pas été trouvé , j'ai pris tout l'argent !!!");}
+    else{ throw CompteException(ident,"le compte n'existe pas JODER pas d'argent pour toi");}
 }
 
 void transfert(map<int,Compte*>& comptes,int from_id,int to_id,double montant){
@@ -96,9 +99,9 @@ void transfert(map<int,Compte*>& comptes,int from_id,int to_id,double montant){
             (*it_from).second->retrait(montant);
             (*it_to).second->depot(montant);
         }
-        else{ throw runtime_error( "un des deux comptes n'existe pas , circulez y'a rien à voir " );}
+        else{ throw CompteException(from_id,"un des deux comptes n'existe pas casse toi de là");}
     }
-    else{ throw runtime_error( "les deux comptes sont les mêmes" );}
+    else{ throw CompteException(to_id,"ptdr t'essaie de transférer sur deux mêmes comptes t'es bête ou quoi");}
 }
 
 
