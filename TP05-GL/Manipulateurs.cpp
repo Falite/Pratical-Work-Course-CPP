@@ -22,6 +22,7 @@ void affiche_vecteur(vector<T> vec){
     cout << endl;
 }
 
+//question d : on peut utiliser "[]" sur l'objet vector
 void affiche(vector<int>const vecc){
     if(vecc.size()!=0){
         for(int i=0;i<vecc.size();++i){
@@ -33,8 +34,10 @@ void affiche(vector<int>const vecc){
     }
     cout << endl;
 }
+
+//question e : le nom de la fonction reste mais pas les arguments, le compilateur gère quand même
 void affiche(list<double>const listt){
-    for(const auto& elem : listt){
+    for(const auto& elem : listt){      //syntaxe d'une boucle for pour parcourir la liste
         cout << elem << " " ;
     }
     cout << endl;
@@ -48,12 +51,15 @@ void affiche_liste(list<T> liste){
     cout << endl;
 }
 
+//question f : 
 void efface(vector<int>& vecc, int i){
-    auto a=find(vecc.begin(),vecc.end(),i);
-    if(a!=vecc.end()){
-        vecc.erase(a);
+    auto a=find(vecc.begin(),vecc.end(),i);    //la fonction find() est commune à tous les conteneurs qui ont une clé
+    if(a!=vecc.end()){                         //elle renvoie un itérateur ( voir cours )
+        vecc.erase(a);                          //on utilise la méthode erase pour l'effacer
     }
 }
+
+
 template<typename T>
 void efface_vector(vector<T>& vec, T elem){
     T a=find(vec.begin(),vec.end(),elem);
@@ -63,8 +69,9 @@ void efface_vector(vector<T>& vec, T elem){
     
 }
 
+//question g : 
 void efface(list<double>& listt, double a){
-    auto it=listt.begin();
+    auto it=listt.begin();                 //on utilise encore un itérateur,
     while(it!=listt.end()){
         if(*it==a){ it=listt.erase(it);}
         else{++it;}
@@ -86,6 +93,7 @@ bool est_pair(int b){
     if(b%2==0){ return true;}
     else{return false;}
 }
+
 void effacepairs(vector<int>& vecc){
 }
 

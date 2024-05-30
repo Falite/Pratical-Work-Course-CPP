@@ -9,12 +9,13 @@
 using namespace std;
 
 int main() {
+    //question a : la syntaxe est toujours la même :
     vector<int> vecint;
     list<double> listreal;
     vector<double>vecdb;
     list<int>listint;
     
-    vecint.push_back(10);
+    vecint.push_back(10);     //question b : On remplit le vecteur d'entiers.
     vecint.push_back(8);
     vecint.push_back(15);
     vecint.push_back(28);
@@ -24,7 +25,7 @@ int main() {
     vecdb.push_back(78.11);
     vecdb.push_back(166.89);
     
-    listreal.push_back(2.5);
+    listreal.push_back(2.5);    //question c : on remplit la liste de réels.
     listreal.push_back(1.8);
     listreal.push_back(2.2);
     listreal.push_back(0.15);
