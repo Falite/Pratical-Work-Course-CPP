@@ -1,16 +1,13 @@
 #include <iostream>
 #include <cmath> // Pour la fonction puissance std::pow
-
-
 #include "point_outofline.hpp"
-#include "Point2.hpp"
 #define N 1
 
 
 int main()
 {
     // Point placé à l'origine par défaut
-    Point<double,4> pt;
+    Point<double,N> pt;
     std::cout << "pt = " << pt << std::endl;
     std::cout << "||pt|| = " << pt.norme() << std::endl;
     std::cout << std::endl;
@@ -48,25 +45,6 @@ int main()
         << " et occupe " << sizeof(pt) << " octets en mémoire."
         << std::endl;
     
-    //Point2 allouée dynamiquement
-    Point2<double> pt2dyn(N);
-    Point<double,N> pt2nondyn;
     
-    std::cout << std::endl;
-    std::cout << std::endl;
-    std::cout << std::endl;
-    std::cout << "Bonus : " << std::endl;
-    
-    if(sizeof(pt2dyn)>sizeof(pt2nondyn)){
-        std::cout << " l'allocation dynamique occupe plus de mémoire que la spécification via le template" << std::endl;
-    }
-    else{
-        std::cout << " la spécification via template occupe plus de mémoire que l'allocation dynamique" << std::endl;
-    }
-    
-    std::cout << std::endl;
-    std::cout << pt2dyn.size() << std::endl;
-    std::cout << "occupation mémoire dans le cas allocation dynamique : " << sizeof(pt2dyn) << std::endl;
-    std::cout << "occupation mémoire dans le cas de spécification via template : " << sizeof(pt2nondyn) << std::endl;
     return 0;
 }

@@ -1,8 +1,8 @@
 //
-//  Point2.hpp
+//  Point2.h
 //  TP04-GL
 //
-//  Created by Abdoullatif Omarjee on 17/04/2024.
+//  Created by Abdoullatif Omarjee on 15/04/2024.
 //
 
 #pragma once
@@ -18,17 +18,14 @@ private:
     T* data;
 public:
     Point2(){
-        m_size=0;
-        data= nullptr;
+        m_size=1;
+        data= new T[m_size];
     };
     
     
     Point2(std::size_t size){
-        if(m_size != size){
-            delete[] data;
-            m_size=size;
-            data= new T[m_size];
-        }
+        m_size=size;
+        data= new T[m_size];
     };
     ~Point2(){
         delete[] data;
@@ -59,3 +56,4 @@ std::ostream& operator<< (std::ostream& out, Point2<T>& pt){
     out << ")";
     return out;
 };
+
