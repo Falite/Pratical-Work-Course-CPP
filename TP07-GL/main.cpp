@@ -10,15 +10,15 @@ using namespace std;
 
 int main()
 {
-    // Inventaire des comptes
+    //Inventaire des comptes
     map<int,Compte*> comptes;
 
-    // Équivalent à un "while (true)" mais permet de prendre en compte
-    // quand l'entrée clavier est "fermée"
+    //Équivalent à un "while (true)" mais permet de prendre en compte
+    //quand l'entrée clavier est "fermée"
     while (! cin.bad())
     {
-        // Permet d'ignorer les erreurs de conversion précédentes
-        // (par exemple si on rentre un texte au lieu d'un nombre)
+        //Permet d'ignorer les erreurs de conversion précédentes
+        //(par exemple si on rentre un texte au lieu d'un nombre)
         cin.clear();
 
         // Demande d'une action
